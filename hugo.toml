@@ -1,4 +1,5 @@
 baseURL = 'https://hheelllll.github.io/'
+publishDir = 'docs'
 languageCode = 'en-us'
 title = 'Jiale HE'
 theme = 'PaperMod'

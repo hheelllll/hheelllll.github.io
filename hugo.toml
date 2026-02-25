@@ -1,0 +1,66 @@
+baseURL = 'https://hheelllll.github.io/'
+languageCode = 'en-us'
+title = 'Jiale HE'
+theme = 'PaperMod'
+
+[params]
+    env = 'production'
+    title = 'Jerry He'
+    description = 'Major in Data Science | Photography Enthusiast | Essay(in Chinese)'
+    keywords = ['Data Science', 'Machine Learning', 'Photography', 'Blog']
+    author = 'HE,Jiale'
+    DateFormat = 'January 2, 2006'
+    defaultTheme = 'auto'
+    ShowReadingTime = true
+    ShowShareButtons = false
+    ShowPostNavLinks = true
+    ShowBreadCrumbs = true
+    ShowCodeCopyButtons = true
+    ShowWordCounts = true
+    ShowRssButtonInSectionTermList = true
+    UseHugoToc = true
+    ShowToc = true
+    TocOpen = true
+
+    [params.profileMode]
+        enabled = true
+        title = "Hi, I'm Jiale He「何佳樂」✋"
+        subtitle = "You can also call me Jerry. A Freshman in CUHKSZ. This is a collection of my research notes, photography, and occasional thoughts."
+        imageUrl = "images/avatar.jpg"
+        imageTitle = "My Avatar"
+        imageWidth = 150
+        imageHeight = 150
+        buttons = [
+            { name = "📊 My Academic", url = "/academic" },
+            { name = "📷 Photography", url = "/photography" },
+            { name = "✍️ Posts(in Chinese)", url = "/posts" }
+        ]
+
+    [[params.socialIcons]]
+        name = "github"
+        url = "https://github.com/hheelllll"
+    [[params.socialIcons]]
+        name = "bilibili"
+        url = "https://space.bilibili.com/393985808"
+
+[menu]
+    [[menu.main]]
+        identifier = 'academic'
+        name = 'My Academic'
+        url = '/academic/'
+        weight = 1
+    [[menu.main]]
+        identifier = 'photography'
+        name = 'Photography'
+        url = '/photography/'
+        weight = 2
+    [[menu.main]]
+        identifier = 'posts'
+        name = 'Posts'
+        url = '/posts/'
+        weight = 3
+    [[menu.main]]
+        identifier = 'search'
+        name = 'Search'
+        url = '/search/'
+        weight = 4

@@ -1,0 +1,88 @@
+{{ $data := .Site.Data.photography }}  
+<div class="portfolio-container">
+  {{ range $data }} 
+  <div class="portfolio-item">
+    <a href="{{ .url }}" data-lightbox="photography" data-title="{{ .title }}" class="image-link">
+      <img src="{{ .url }}" alt="{{ .title }}" loading="lazy">
+    </a>
+    
+    <div class="portfolio-caption">
+      <h3 class="caption-title">{{ .title }}</h3>
+      </div>
+  </div>
+  {{ end }}
+</div>
+
+<style>
+/* 页面整体容器：控制最大宽度和居中 */
+.portfolio-container {
+  max-width: 900px; /* 限制最大宽度，防止在超大屏上图片过大 */
+  margin: 80px auto; /* 上下留白，左右居中 */
+  padding: 0 20px;   /* 移动端两侧留白 */
+}
+
+/* 单个作品容器 */
+.portfolio-item {
+  margin-bottom: 120px; /* 图片之间的巨大间距，这是高级感的关键！ */
+  text-align: center;   /* 让图片和标题都居中 */
+}
+
+/* 图片链接容器 */
+.image-link {
+  display: block;
+  cursor: zoom-in; /* 鼠标移上去显示放大镜 */
+}
+
+/* 图片样式：核心 */
+.portfolio-item img {
+  width: auto;      /* 宽度自动 */
+  max-width: 100%;  /* 最大不超过容器宽度 */
+  height: auto;     /* 高度自动，保持原始比例，绝不裁切 */
+  display: inline-block; /* 配合 text-align: center 实现居中 */
+  
+  /* 可选：添加一个极其微弱的阴影增加立体感，不喜欢可删除 */
+  /* box-shadow: 0 4px 20px rgba(0,0,0,0.05); */
+  
+  /* 取消之前的悬停放大效果，保持静谧感 */
+  transition: opacity 0.3s ease;
+}
+
+/* 鼠标悬停时轻微改变透明度，提示可点击 */
+.image-link:hover img {
+  opacity: 0.95;
+}
+
+/* 标题容器 */
+.portfolio-caption {
+  margin-top: 24px; /* 标题与图片的间距 */
+}
+
+/* 标题文字样式：模仿艺术展标签 */
+.caption-title {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; /* 使用系统优质无衬线字体 */
+  font-size: 1.1rem;
+  font-weight: 400; /* 不需要太粗 */
+  color: #333;      /* 深灰色，比纯黑更柔和 */
+  letter-spacing: 1px; /* 微小的字间距 */
+  margin: 0;
+  text-transform: uppercase; /* 可选：全大写增加形式感 */
+}
+
+/* 可选：描述文字样式 */
+.caption-desc {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 8px;
+  font-weight: 300;
+}
+
+/* 响应式调整：手机上减小间距 */
+@media (max-width: 600px) {
+  .portfolio-container {
+    margin: 40px auto;
+  }
+  .portfolio-item {
+    margin-bottom: 80px;
+  }
+}
+</style>

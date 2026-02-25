@@ -1,3 +1,8 @@
+---
+title: Chinese class Paper
+draft: false
+---
+
 ## 转型社会中个体与社会的身份迷茫——以《儿子的大玩偶》中妆容为线索
 
 ### 前言

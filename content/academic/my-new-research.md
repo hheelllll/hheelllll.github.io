@@ -11,8 +11,8 @@ In light of my currently pristine (and tragically empty) academic record, I am o
 If you find yourself burdened with an excess of brilliance and a spare slot in your author list, I humbly offer my name for your next publication. 
 
 **What I offer in return:**
+
 * Eternal gratitude (non-expiring).
-* A statistically significant increase in the "Coolness Factor" of your paper.
 * I promise not to dispute the Nobel Prize when you win it.
 
 ### **Mandatory Protocol:**

@@ -1,0 +1,16 @@
+/* 暴力粉碎 PaperMod 自动生成的任何伪元素横线 */
+.j-art-title::before, 
+.j-art-title::after,
+.j-det-title::before, 
+.j-det-title::after,
+.j-det-label span::before {
+    content: none !important;
+    display: none !important;
+}
+
+/* 确保封面文字不被主题的颜色策略覆盖 */
+.j-art-overlay div, .j-art-overlay span {
+    color: #ffffff !important;
+    border: none !important;
+    text-decoration: none !important;
+}

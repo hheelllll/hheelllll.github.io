@@ -32,9 +32,9 @@ theme = 'PaperMod'
         imageWidth = 150
         imageHeight = 150
         buttons = [
-            { name = "📊 My Academic", url = "/academic" },
-            { name = "📷 Photography", url = "/photography" },
-            { name = "✍️ Posts(in Chinese)", url = "/posts" }
+            { name = "Academic", url = "/academic" },
+            { name = "Photography", url = "/photography" },
+            { name = "Essays", url = "/posts" }
         ]
 
     [[params.socialIcons]]

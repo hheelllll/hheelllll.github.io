@@ -1,33 +1,115 @@
-- title: CastleForest
-  url: https://pub-867ab67c87ea4ab3988d1229f98eeb98.r2.dev/photos/CastleForest.webp
+- title: Natsu_Side
+  display_title: Side
+  url: https://pub-867ab67c87ea4ab3988d1229f98eeb98.r2.dev/photos/Natsu/Natsu_Side.webp
+  date: '2026-04-13'
+  season: Natsu
+- title: Otoño_Crowd
+  display_title: Crowd
+  url: https://pub-867ab67c87ea4ab3988d1229f98eeb98.r2.dev/photos/Otoño/Otoño_Crowd.webp
+  date: '2026-04-13'
+  season: Otoño
+- title: Otoño_GambleGod
+  display_title: GambleGod
+  url: https://pub-867ab67c87ea4ab3988d1229f98eeb98.r2.dev/photos/Otoño/Otoño_GambleGod.webp
+  date: '2026-04-13'
+  season: Otoño
+- title: Otoño_MacauStreet
+  display_title: MacauStreet
+  url: https://pub-867ab67c87ea4ab3988d1229f98eeb98.r2.dev/photos/Otoño/Otoño_MacauStreet.webp
+  date: '2026-04-13'
+  season: Otoño
+- title: Printemps_Merci
+  display_title: Merci
+  url: https://pub-867ab67c87ea4ab3988d1229f98eeb98.r2.dev/photos/Printemps/Printemps_Merci.webp
+  date: '2026-04-13'
+  season: Printemps
+- title: Otoño_Betray
+  display_title: Betray
+  url: https://pub-867ab67c87ea4ab3988d1229f98eeb98.r2.dev/photos/Otoño/Otoño_Betray.webp
+  date: '2026-04-05'
+  season: Otoño
+- title: Otoño_IMG_6494
+  display_title: IMG_6494
+  url: https://pub-867ab67c87ea4ab3988d1229f98eeb98.r2.dev/photos/Otoño/Otoño_IMG_6494.webp
+  date: '2026-04-05'
+  season: Otoño
+- title: Printemps_IMG_6519
+  display_title: IMG_6519
+  url: https://pub-867ab67c87ea4ab3988d1229f98eeb98.r2.dev/photos/Printemps/Printemps_IMG_6519.webp
+  date: '2026-04-05'
+  season: Printemps
+- title: Printemps_IMG_6541
+  display_title: IMG_6541
+  url: https://pub-867ab67c87ea4ab3988d1229f98eeb98.r2.dev/photos/Printemps/Printemps_IMG_6541.webp
+  date: '2026-04-05'
+  season: Printemps
+- title: Printemps_IMG_6551
+  display_title: IMG_6551
+  url: https://pub-867ab67c87ea4ab3988d1229f98eeb98.r2.dev/photos/Printemps/Printemps_IMG_6551.webp
+  date: '2026-04-05'
+  season: Printemps
+- title: Winter_IMG_6582
+  display_title: IMG_6582
+  url: https://pub-867ab67c87ea4ab3988d1229f98eeb98.r2.dev/photos/Winter/Winter_IMG_6582.webp
+  date: '2026-04-05'
+  season: Winter
+- title: Natsu_StepintoSpace
+  display_title: StepintoSpace
+  url: https://pub-867ab67c87ea4ab3988d1229f98eeb98.r2.dev/photos/Natsu/Natsu_StepintoSpace.webp
+  date: '2026-03-03'
+  season: Natsu
+- title: Winter_Building
+  display_title: Building
+  url: https://pub-867ab67c87ea4ab3988d1229f98eeb98.r2.dev/photos/Winter/Winter_Building.webp
   date: '2026-02-25'
-- title: Duck & Fish
-  url: https://pub-867ab67c87ea4ab3988d1229f98eeb98.r2.dev/photos/Duck&Fish.webp
+  season: Winter
+- title: Winter_CastleForest
+  display_title: CastleForest
+  url: https://pub-867ab67c87ea4ab3988d1229f98eeb98.r2.dev/photos/Winter/Winter_CastleForest.webp
   date: '2026-02-25'
-- title: Glimpse
-  url: https://pub-867ab67c87ea4ab3988d1229f98eeb98.r2.dev/photos/GlimpsefromWindow.webp
+  season: Winter
+- title: Winter_KidKing
+  display_title: KidKing
+  url: https://pub-867ab67c87ea4ab3988d1229f98eeb98.r2.dev/photos/Winter/Winter_KidKing.webp
   date: '2026-02-25'
-- title: Kid King
-  url: https://pub-867ab67c87ea4ab3988d1229f98eeb98.r2.dev/photos/KidKing.webp
+  season: Winter
+- title: Winter_TiendaGuy
+  display_title: TiendaGuy
+  url: https://pub-867ab67c87ea4ab3988d1229f98eeb98.r2.dev/photos/Winter/Winter_TiendaGuy.webp
   date: '2026-02-25'
-- title: Bell Wing
-  url: https://pub-867ab67c87ea4ab3988d1229f98eeb98.r2.dev/photos/Wing.webp
+  season: Winter
+- title: Winter_Wing
+  display_title: Wing
+  url: https://pub-867ab67c87ea4ab3988d1229f98eeb98.r2.dev/photos/Winter/Winter_Wing.webp
   date: '2026-02-25'
-- title: Modern Man
-  url: https://pub-867ab67c87ea4ab3988d1229f98eeb98.r2.dev/photos/微信图片_20260225124408_544_56.webp
-  date: '2026-02-25'
-- title: Macau Building
-  url: https://pub-867ab67c87ea4ab3988d1229f98eeb98.r2.dev/photos/微信图片_20260225124410_545_56.webp
-  date: '2026-02-25'
-- title: Smoking Ethnic
-  url: https://pub-867ab67c87ea4ab3988d1229f98eeb98.r2.dev/photos/IMG_6386.webp
+  season: Winter
+- title: Printemps_IMG_6394_1
+  display_title: IMG_6394_1
+  url: https://pub-867ab67c87ea4ab3988d1229f98eeb98.r2.dev/photos/Printemps/Printemps_IMG_6394_1.webp
   date: '2026-02-20'
-- title: Colorful rainbow
-  url: https://pub-867ab67c87ea4ab3988d1229f98eeb98.r2.dev/photos/IMG_6394_1.webp
+  season: Printemps
+- title: Winter_IMG_6469
+  display_title: IMG_6469
+  url: https://pub-867ab67c87ea4ab3988d1229f98eeb98.r2.dev/photos/Winter/Winter_IMG_6469.webp
   date: '2026-02-20'
-- title: player
-  url: https://pub-867ab67c87ea4ab3988d1229f98eeb98.r2.dev/photos/IMG_6469.webp
+  season: Winter
+- title: Winter_IMG_6473
+  display_title: IMG_6473
+  url: https://pub-867ab67c87ea4ab3988d1229f98eeb98.r2.dev/photos/Winter/Winter_IMG_6473.webp
   date: '2026-02-20'
-- title: Plane above roof
-  url: https://pub-867ab67c87ea4ab3988d1229f98eeb98.r2.dev/photos/IMG_6473.webp
-  date: '2026-02-20'
+  season: Winter
+- title: Natsu_IMG_5242
+  display_title: IMG_5242
+  url: https://pub-867ab67c87ea4ab3988d1229f98eeb98.r2.dev/photos/Natsu/Natsu_IMG_5242.webp
+  date: '2025-07-16'
+  season: Natsu
+- title: Natsu_IMG_5262
+  display_title: IMG_5262
+  url: https://pub-867ab67c87ea4ab3988d1229f98eeb98.r2.dev/photos/Natsu/Natsu_IMG_5262.webp
+  date: '2025-07-16'
+  season: Natsu
+- title: Printemps_IMG_4243
+  display_title: IMG_4243
+  url: https://pub-867ab67c87ea4ab3988d1229f98eeb98.r2.dev/photos/Printemps/Printemps_IMG_4243.webp
+  date: '2025-07-08'
+  season: Printemps

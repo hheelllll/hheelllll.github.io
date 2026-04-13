@@ -1,0 +1,81 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Noto+Serif+SC:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Allura&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+
+<style>
+/* =========================================
+   全局字体：欧美报纸印刷质感 (兼容夜间模式)
+   ========================================= */
+
+/* 正文：绑定主题动态主色 (var(--primary)) */
+body, p, div {
+    font-family: 'Lora', 'Noto Serif SC', Georgia, "Times New Roman", serif !important;
+    font-weight: 400 !important;
+    line-height: 1.8 !important;
+    color: var(--primary) !important; 
+}
+
+/* 大标题：绑定主题动态主色 */
+h1, h2, h3, h4, h5, h6, .album-title, .detail-title {
+    font-family: 'Playfair Display', 'Noto Serif SC', serif !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.02em !important;
+    color: var(--primary) !important;
+}
+
+/* 首页副标题：绑定主题动态次级色 (var(--secondary))，白天是灰色，夜间是浅灰 */
+.profile-info, .profile span {
+    display: block !important;
+    max-width: 750px !important;
+    margin: 0 auto 2rem auto !important;
+    font-size: 1.15rem !important; 
+    color: var(--secondary) !important;
+}
+
+/* =========================================
+   重塑高级感按钮：完美的日夜反色交互
+   ========================================= */
+
+/* 强制横向弹性居中排列 */
+body .profile .buttons {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 24px !important; 
+    margin-top: 2rem !important;
+}
+
+/* 按钮本体：绝对零圆角，动态边框色 */
+body .profile .button {
+    display: inline-flex !important;
+    width: auto !important; 
+    align-items: center !important;
+    justify-content: center !important;
+    background-color: transparent !important; 
+    color: var(--primary) !important; /* 文字颜色随日夜变化 */
+    border: 1px solid var(--primary) !important; /* 边框颜色随日夜变化 */
+    border-radius: 0px !important; 
+    padding: 12px 32px !important;
+    font-family: 'Lora', 'Noto Serif SC', serif !important;
+    font-size: 0.85rem !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.15em !important; 
+    text-transform: uppercase !important; 
+    box-shadow: none !important;
+    margin: 0 !important;
+    transition: all 0.3s ease-out !important;
+}
+
+/* 优雅的悬浮反色：利用 var(--theme) 获取背景色 */
+body .profile .button:hover {
+    background-color: var(--primary) !important;
+    color: var(--theme) !important; /* 悬浮时，文字变成背景的颜色 */
+    transform: translateY(-3px) !important;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.15) !important;
+}
+</style>

@@ -4,6 +4,9 @@ languageCode = 'en-us'
 title = 'Jiale HE'
 theme = 'PaperMod'
 
+[outputs]
+home = ["HTML", "RSS"]
+
 [params]
     env = 'production'
     title = 'Jerry He'
@@ -43,6 +46,9 @@ theme = 'PaperMod'
     [[params.socialIcons]]
         name = "bilibili"
         url = "https://space.bilibili.com/393985808"
+    [[params.socialIcons]]
+        name = "email"
+        url = "mailto:HejialeJerry@outlook.com"
 
 [menu]
     [[menu.main]]
@@ -60,8 +66,3 @@ theme = 'PaperMod'
         name = 'Posts'
         url = '/posts/'
         weight = 3
-    [[menu.main]]
-        identifier = 'search'
-        name = 'Search'
-        url = '/search/'
-        weight = 4

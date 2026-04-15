@@ -1,0 +1,31 @@
+{{ define "main" }}
+<div class="jiale-gallery-wrapper">
+    
+    <div class="jiale-gallery-header">
+        <div class="jiale-gallery-title">Photography</div>
+        <div class="jiale-gallery-desc">Chronicles of Four Seasons</div>
+    </div>
+
+    <div class="jiale-cover-grid">
+        {{ range .RegularPages }}
+            
+            {{ $season := .Title }}
+            {{ $seasonPhotos := where site.Data.photography "season" $season }}
+            {{ $coverPhoto := index $seasonPhotos 0 }}
+
+            <a href="{{ .RelPermalink }}" class="jiale-cover-card">
+                {{ if $coverPhoto }}
+                    <img src="{{ $coverPhoto.url }}" alt="{{ $season }} Collection Cover" class="jiale-cover-img" loading="lazy">
+                {{ end }}
+                
+                <div class="jiale-cover-overlay">
+                    <div class="jiale-cover-title">{{ $season }}</div>
+                    <div class="jiale-cover-subtitle">{{ len $seasonPhotos }} Works</div>
+                </div>
+            </a>
+
+        {{ end }}
+    </div>
+
+</div>
+{{ end }}

@@ -1,16 +1,191 @@
-/* 暴力粉碎 PaperMod 自动生成的任何伪元素横线 */
-.j-art-title::before, 
-.j-art-title::after,
-.j-det-title::before, 
-.j-det-title::after,
-.j-det-label span::before {
-    content: none !important;
-    display: none !important;
+/* =========================================
+   摄影集入口大厅：马格南社论级系列封面 (新)
+   ========================================= */
+
+/* 1. 封面网格容器：使用 Grid 布局，自动适配列数 */
+.jiale-cover-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px; /* 封面之间的留白 */
+    margin-top: 3.5rem;
 }
 
-/* 确保封面文字不被主题的颜色策略覆盖 */
-.j-art-overlay div, .j-art-overlay span {
-    color: #ffffff !important;
-    border: none !important;
-    text-decoration: none !important;
+/* 2. 封面卡片本体：绝对直角，无边框 */
+.jiale-cover-card {
+    position: relative;
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 5; /* 严格物理画幅，营造社论高级感 */
+    overflow: hidden;
+    background-color: var(--entry); /* 兼容夜间的骨架色 */
+    text-decoration: none;
+    border: none; /* 拒绝任何默认边框线条 */
+    box-shadow: none;
+    transition: all 0.5s ease;
+}
+
+/* 3. 封面图片：强制填满空间，object-fit: cover 裁剪 */
+.jiale-cover-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* 极慢速平滑放大 */
+}
+
+/* 4. 黑纱叠层遮罩：全覆盖 + 居中 */
+.jiale-cover-overlay {
+    position: absolute;
+    inset: 0; /* 四周对齐 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    
+    /* 核心：马格南风格全覆盖遮罩，高对比度衬托白色字体 */
+    background: rgba(0, 0, 0, 0.45); 
+    padding: 20px;
+    box-sizing: border-box;
+    transition: background 0.6s ease;
+}
+
+/* 5. 封面文字：顶级斜体衬线体 */
+.jiale-cover-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.2rem;
+    font-style: italic;
+    /* 核心修复：强制纯白，击穿 PaperMod 的 a 标签颜色劫持 */
+    color: #ffffff !important; 
+    letter-spacing: 0.1em;
+    text-transform: capitalize;
+    margin-bottom: 0.5rem;
+    /* 加深一倍的文字阴影，让字体从复杂的背景图中彻底“浮”出来 */
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.6) !important; 
+}
+
+.jiale-cover-subtitle {
+    font-family: 'Lora', 'Noto Serif SC', serif;
+    font-size: 0.9rem;
+    /* 核心修复：强制亮白，拒绝被主题染黑 */
+    color: rgba(255, 255, 255, 0.9) !important;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+/* 6. 交互：鼠标悬浮时图片缓慢放大，遮罩变深，整体轻微位移 */
+.jiale-cover-card:hover .jiale-cover-img {
+    transform: scale(1.08); /* 缓慢放大，营造深度感 */
+}
+.jiale-cover-card:hover .jiale-cover-overlay {
+    background: rgba(0, 0, 0, 0.6); /* 遮罩变深 */
+}
+.jiale-cover-card:hover {
+    box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+}
+
+/* =========================================
+   独立展厅内页：排版与返回按钮
+   ========================================= */
+
+/* 展厅大标题 */
+.jiale-season-title {
+    font-family: 'Playfair Display', serif !important;
+    font-size: 2.8rem !important;
+    font-style: italic;
+    color: var(--primary) !important;
+    text-align: center;
+    letter-spacing: 0.05em;
+    margin-bottom: 3rem;
+}
+
+/* 优雅的返回大厅按钮 */
+.jiale-back-link {
+    font-family: 'Lora', 'Noto Serif SC', serif;
+    font-size: 0.95rem;
+    color: var(--secondary);
+    text-decoration: none;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-bottom: 1px solid transparent;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.jiale-back-link:hover {
+    color: var(--primary);
+    border-bottom: 1px solid var(--primary);
+}
+
+/* --- 内页照片瀑布流核心 --- */
+.jiale-photo-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 40px; 
+}
+
+.jiale-photo-card {
+    position: relative; 
+    width: 100%;
+    overflow: hidden;
+    background-color: var(--entry); 
+}
+
+.jiale-photo-card img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* 内页文字叠层与渐变遮罩 (从底部升起的黑纱) */
+.jiale-photo-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 40px 30px 25px 30px; 
+    box-sizing: border-box;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%);
+    pointer-events: none; 
+}
+
+.jiale-photo-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 2.2rem;
+    color: #ffffff !important; 
+    margin-bottom: 6px;
+    line-height: 1.2;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); 
+}
+
+.jiale-photo-meta {
+    font-family: 'Lora', 'Noto Serif SC', serif;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.85) !important; 
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+/* =========================================
+   社交图标交互升华
+   ========================================= */
+.jiale-social-wrapper .social-icons {
+    display: flex;
+    gap: 18px; /* 图标之间的严谨间距 */
+}
+
+.jiale-social-wrapper .social-icons a {
+    color: var(--secondary) !important; /* 默认状态为次级灰调，保持克制 */
+    transition: all 0.3s ease !important;
+}
+
+.jiale-social-wrapper .social-icons a:hover {
+    color: var(--primary) !important; /* 悬停时点亮为主色 */
+    transform: translateY(-3px) !important; /* 极其微妙的上浮 */
+}
+
+/* 调整 SVG 图标的物理尺寸 */
+.jiale-social-wrapper .social-icons svg {
+    width: 26px !important;
+    height: 26px !important;
 }

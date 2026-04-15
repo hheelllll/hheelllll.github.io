@@ -4,45 +4,40 @@
 {{ $seasons := slice }}
 {{ range $.Site.Data.photography }}{{ if .season }}{{ if not (in $seasons .season) }}{{ $seasons = $seasons | append .season }}{{ end }}{{ end }}{{ end }}
 
-<div style="width: 100vw; position: relative; left: 50%; transform: translateX(-50%); max-width: 1400px; padding: 0 4vw; box-sizing: border-box; margin: 2rem 0;">
+<div class="j-gallery-wrapper">
     
-    <div id="jerry-idx" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px;">
+    <div id="j-index-view" class="j-grid">
         {{ range $seasons }}
-            {{ $s := . }}
-            {{ $photos := where $.Site.Data.photography "season" $s }}
+            {{ $sName := . }}
+            {{ $photos := where $.Site.Data.photography "season" $sName }}
             {{ $cover := index $photos 0 }}
             
-            <div onclick="openGal('{{ $s }}')" style="position: relative; cursor: pointer; aspect-ratio: 4/3; background: #000; border-radius: 4px; overflow: hidden;">
-                <img src="{{ $cover.url }}" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.65; display: block; transition: transform 0.5s;">
+            <div class="j-card" onclick="openJAlbum('{{ $sName }}')">
+                <img src="{{ $cover.url }}" alt="{{ $sName }}" loading="lazy">
                 
-                <div style="position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+                <div class="j-overlay">
+                    <div class="j-album-title">{{ $sName | replace "_" " " }}</div>
                     
-                    <div style="color: #ffffff !important; font-family: 'Georgia', 'Times New Roman', 'Songti SC', 'Noto Serif SC', serif !important; font-size: 3.8rem !important; font-style: italic !important; font-weight: normal !important; text-transform: capitalize !important; letter-spacing: 2px !important; margin: 0 0 15px 0 !important; padding: 0 !important; line-height: 1.2 !important; text-shadow: 0 4px 10px rgba(0,0,0,0.8) !important; border: none !important; display: block !important;">
-                        {{ $s | replace "_" " " }}
-                    </div>
-                    
-                    <div style="color: rgba(255,255,255,0.9) !important; font-family: 'Arial', sans-serif !important; font-size: 0.9rem !important; letter-spacing: 4px !important; text-transform: uppercase !important; border: none !important;">
-                        {{ len $photos }} WORKS
-                    </div>
+                    <div class="j-album-count">{{ len $photos }} WORKS</div>
                 </div>
             </div>
         {{ end }}
     </div>
 
-    <div id="jerry-det" style="display: none; opacity: 0; transition: opacity 0.4s;">
-        <div style="display: flex; align-items: center; margin-bottom: 40px; padding-bottom: 20px; border-bottom: 1px solid rgba(128,128,128,0.2);">
-            <button onclick="closeGal()" style="background: none; border: 1px solid var(--primary); color: var(--primary); padding: 8px 24px; cursor: pointer; letter-spacing: 2px;">BACK</button>
-            <div id="jerry-title" style="margin-left: 30px; font-family: 'Georgia', 'Times New Roman', serif; font-size: 2.5rem; font-style: italic; color: var(--primary);"></div>
+    <div id="j-detail-view" style="display: none; opacity: 0; transition: opacity 0.4s ease;">
+        <div class="j-detail-header">
+            <button class="j-btn-back" onclick="closeJAlbum()">BACK</button>
+            <div id="j-detail-title" class="j-header-title"></div>
         </div>
         
         {{ range $seasons }}
             {{ $sn := . }}
-            <div id="grid-{{ $sn }}" style="display: none; column-count: 2; column-gap: 30px;">
+            <div id="j-masonry-{{ $sn }}" class="j-masonry" style="display: none;">
                 {{ range where $.Site.Data.photography "season" $sn }}
-                <a href="{{ .url }}" data-fancybox="{{ $sn }}" style="display: block; margin-bottom: 30px; position: relative;">
-                    <img src="{{ .url }}" style="width: 100%; height: auto; display: block;">
-                    <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 25px 20px; background: linear-gradient(transparent, rgba(0,0,0,0.8)); color: #fff; font-family: 'Georgia', 'Times New Roman', serif; font-style: italic; font-size: 1.2rem;">
-                        {{ .display_title | default .title | replace "_" " " }}
+                <a href="{{ .url }}" data-fancybox="{{ $sn }}" class="j-item">
+                    <img src="{{ .url }}" loading="lazy">
+                    <div class="j-item-label">
+                        <span>{{ .display_title | default .title | replace "_" " " }}</span>
                     </div>
                 </a>
                 {{ end }}
@@ -51,19 +46,86 @@
     </div>
 </div>
 
+<style>
+/* 强制抹除可能残余的主题装饰横线（双重保险） */
+.j-album-title::before, .j-album-title::after,
+.j-header-title::before, .j-header-title::after {
+    content: none !important;
+    display: none !important;
+}
+
+/* 基础容器布局 */
+.j-gallery-wrapper { width: 100vw; position: relative; left: 50%; transform: translateX(-50%); max-width: 1400px; padding: 0 4vw; box-sizing: border-box; margin: 2rem 0; }
+.j-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px; }
+.j-card { position: relative; cursor: pointer; aspect-ratio: 4/3; background: #000; border-radius: 4px; overflow: hidden; }
+.j-card img { width: 100%; height: 100%; object-fit: cover; opacity: 0.65; display: block; transition: transform 0.8s ease, opacity 0.5s ease; }
+.j-overlay { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+
+/* 悬停动效 */
+.j-card:hover img { transform: scale(1.05); opacity: 0.85; }
+
+/* 🌟 核心排版：系统衬线斜体，无畏网络波动，瞬间加载 */
+.j-album-title {
+    color: #ffffff !important;
+    /* 使用系统最顶级的优雅衬线字体栈 */
+    font-family: 'Georgia', 'Times New Roman', 'Noto Serif SC', 'Songti SC', serif !important;
+    font-size: 3.8rem !important;
+    font-style: italic !important; /* 强制斜体，呈现手写艺术感 */
+    font-weight: 400 !important;
+    text-transform: capitalize !important;
+    letter-spacing: 2px !important;
+    margin: 0 0 15px 0 !important;
+    line-height: 1.2 !important;
+    text-shadow: 0 4px 15px rgba(0,0,0,0.8) !important;
+    display: block !important;
+    border: none !important;
+}
+
+/* 作品数量文字 */
+.j-album-count {
+    color: rgba(255,255,255,0.9) !important;
+    font-family: 'Arial', 'Helvetica', sans-serif !important;
+    font-size: 0.9rem !important;
+    letter-spacing: 4px !important;
+    text-transform: uppercase !important;
+}
+
+/* 详情页排版 */
+.j-detail-header { display: flex; align-items: center; margin-bottom: 40px; padding-bottom: 20px; border-bottom: 1px solid rgba(128,128,128,0.2); }
+.j-btn-back { background: transparent; border: 1px solid var(--primary); color: var(--primary); padding: 8px 24px; cursor: pointer; letter-spacing: 2px; font-size: 0.9rem; transition: 0.3s; }
+.j-btn-back:hover { background: var(--primary); color: var(--theme); }
+.j-header-title { margin-left: 30px; font-family: 'Georgia', 'Times New Roman', serif !important; font-size: 2.5rem !important; font-style: italic !important; color: var(--primary) !important; }
+
+.j-masonry { column-count: 2; column-gap: 30px; }
+.j-item { break-inside: avoid; margin-bottom: 30px; display: block; position: relative; text-decoration: none !important; }
+.j-item img { width: 100%; height: auto; display: block; }
+.j-item-label { position: absolute; bottom: 0; left: 0; right: 0; padding: 30px 20px 20px; background: linear-gradient(transparent, rgba(0,0,0,0.85)); display: flex; align-items: flex-end; opacity: 0; transition: 0.4s; }
+.j-item-label span { color: #fff !important; font-family: 'Georgia', serif !important; font-style: italic !important; font-size: 1.2rem; }
+.j-item:hover .j-item-label { opacity: 1; }
+
+@media (max-width: 800px) { .j-masonry { column-count: 1; } .j-grid { grid-template-columns: 1fr; } .j-album-title { font-size: 3rem !important; } }
+</style>
+
 <script>
-    function openGal(n){
-        document.querySelectorAll('[id^="grid-"]').forEach(e=>e.style.display='none');
-        document.getElementById('grid-'+n).style.display='block';
-        document.getElementById('jerry-title').innerText=n.replace(/_/g," ");
-        document.getElementById('jerry-idx').style.display='none';
-        const d=document.getElementById('jerry-det');
-        d.style.display='block'; setTimeout(()=>d.style.opacity='1',10);
+    function openJAlbum(name){
+        document.querySelectorAll('[id^="j-masonry-"]').forEach(el => el.style.display='none');
+        document.getElementById('j-masonry-'+name).style.display='block';
+        document.getElementById('j-detail-title').innerText=name.replace(/_/g," ");
+        document.getElementById('j-index-view').style.display='none';
+        const det = document.getElementById('j-detail-view');
+        det.style.display='block';
+        setTimeout(() => det.style.opacity='1', 10);
     }
-    function closeGal(){
-        const d=document.getElementById('jerry-det');
-        d.style.opacity='0';
-        setTimeout(()=>{ d.style.display='none'; document.getElementById('jerry-idx').style.display='grid'; window.scrollTo(0,0); },400);
+    function closeJAlbum(){
+        const det = document.getElementById('j-detail-view');
+        det.style.opacity='0';
+        setTimeout(()=>{ 
+            det.style.display='none'; 
+            document.getElementById('j-index-view').style.display='grid'; 
+            window.scrollTo(0,0); 
+        }, 400);
     }
-    document.addEventListener("DOMContentLoaded",()=> { if(typeof Fancybox!=="undefined") Fancybox.bind("[data-fancybox]",{Toolbar:{display:{right:["close"]}}}); });
+    document.addEventListener("DOMContentLoaded", function() { 
+        if(typeof Fancybox !== "undefined") Fancybox.bind("[data-fancybox]", { Toolbar: { display: { right: ["close"] } } }); 
+    });
 </script>

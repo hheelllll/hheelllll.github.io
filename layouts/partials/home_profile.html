@@ -1,0 +1,24 @@
+<div class="jiale-profile-sandbox">
+    {{- with site.Params.profileMode }}
+    
+    <div class="jiale-avatar-wrapper">
+        <img class="jiale-avatar" src="{{ .imageUrl | relURL }}" alt="{{ .imageTitle }}" width="{{ .imageWidth }}" height="{{ .imageHeight }}">
+    </div>
+    
+    <h1 class="jiale-title">{{ .title | markdownify }}</h1>
+    <p class="jiale-subtitle">{{ .subtitle | markdownify }}</p>
+    
+    {{- end }}
+
+    <div class="jiale-social-wrapper">
+        {{ partial "social_icons.html" site.Params.socialIcons }}
+    </div>
+
+    {{- with site.Params.profileMode.buttons }}
+    <div class="jiale-btn-group">
+        {{- range . }}
+        <a class="jiale-editorial-btn" href="{{ .url | relLangURL }}" rel="noopener">{{ .name }}</a>
+        {{- end }}
+    </div>
+    {{- end }}
+</div>

@@ -1,0 +1,32 @@
+{{ define "main" }}
+<div class="jiale-gallery-wrapper">
+
+    <div class="jiale-gallery-header">
+        <a href="/photography/" class="jiale-back-link">← Back to Collections</a>
+        <div class="jiale-season-title" style="margin-top: 1.5rem;">{{ .Title }}</div>
+    </div>
+
+    {{ $season := .Title }}
+    {{ $seasonPhotos := where site.Data.photography "season" $season }}
+
+    {{ if $seasonPhotos }}
+        <div class="jiale-photo-grid">
+            {{ range $seasonPhotos }}
+            <div class="jiale-photo-card">
+                <img src="{{ .url }}" alt="{{ .display_title }}" loading="lazy">
+                <div class="jiale-photo-overlay">
+                    <div class="jiale-photo-text">{{ .display_title }}</div>
+                    <div class="jiale-photo-meta">{{ .date }}</div> 
+                </div>
+            </div>
+            {{ end }}
+        </div>
+    {{ else }}
+        <div style="text-align:center; padding: 4rem; font-family: 'Lora', serif; color: #ff4a4a;">
+            Data Mismatch: System cannot find photos for season "{{ $season }}". <br>
+            <span style="font-size: 0.8rem; color: #888;">(请检查 content/photography/ 下 md 文件的 title 是否与 YAML 里的 season 字母完全一致)</span>
+        </div>
+    {{ end }}
+
+</div>
+{{ end }}

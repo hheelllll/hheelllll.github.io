@@ -49,6 +49,12 @@ home = ["HTML", "RSS"]
     [[params.socialIcons]]
         name = "email"
         url = "mailto:HejialeJerry@outlook.com"
+    [[params.socialIcons]]
+        name = "linkedin"
+        url = "https://www.linkedin.com/in/jiale-he-7822aa3b9/"
+    [[params.socialIcons]]
+        name = "instagram"
+        url = "https://www.instagram.com/jerryjialehe/"
 
 [menu]
     [[menu.main]]
@@ -66,3 +72,8 @@ home = ["HTML", "RSS"]
         name = 'Posts'
         url = '/posts/'
         weight = 3
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true

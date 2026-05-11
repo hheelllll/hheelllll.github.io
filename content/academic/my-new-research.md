@@ -3,9 +3,9 @@ title: Claim
 draft: false
 ---
 
-# 📝 A Humanitarian Call for Academic "Co-Authorship"
+# A Humanitarian Call for Academic "Co-Authorship"
 
-### **Current Research Status:** *Phenomenally unpublished.* ### **The Proposition:**
+### **Current Research Status:** *Phenomenally unpublished.*  **The Proposition:**
 In light of my currently pristine (and tragically empty) academic record, I am officially opening applications for **"Visionary Philanthropists"** who wish to perform an act of supreme scholarly charity. 
 
 If you find yourself burdened with an excess of brilliance and a spare slot in your author list, I humbly offer my name for your next publication. 
